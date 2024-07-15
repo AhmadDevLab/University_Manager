@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214161137119",
+    "project_id": "university-ca05f",
+    "storage_bucket": "university-ca05f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214161137119:android:137ec3feb3e26cb039786a",
+        "android_client_info": {
+          "package_name": "com.login.ric"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3P8wh-vlNR7EyqE-VoOKO57ssw_A0cks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

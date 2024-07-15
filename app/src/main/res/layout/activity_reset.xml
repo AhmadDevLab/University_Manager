@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        app:cardBackgroundColor="#000000"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset Password"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="30dp"
+                android:elevation="10dp"
+                android:layout_marginTop="130dp"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enter your email."
+                        android:layout_marginStart="20dp"
+                        android:textSize="18sp"
+                        android:layout_marginTop="40dp"
+                        android:id="@+id/tvInfo"
+                        />
+
+                    <EditText
+                        android:id="@+id/etResetEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="example@gmail.com"
+                        android:textSize="16sp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/email"
+                        android:textColorHint="#323131"
+                        android:drawableStart="@drawable/email_vector"
+                        android:paddingStart="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_below="@+id/tvInfo"
+                        android:layout_marginTop="10dp"
+                        />
+
+
+
+                    <Button
+                        android:id="@+id/btnConfirm"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="50dp"
+                        android:backgroundTint="@color/black"
+                        android:text="Confirm Email "
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:elevation="10dp"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
