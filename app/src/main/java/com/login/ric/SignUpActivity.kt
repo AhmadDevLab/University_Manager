@@ -10,13 +10,16 @@ import com.login.ric.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-    private val db = Firebase.firestore
-    
+    public val db = Firebase.firestore
+    private lateinit var mySharedPreferences: MySharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        mySharedPreferences = MySharedPreferences(this@SignUpActivity)
 
         binding.btnSignUp.setOnClickListener {
             val name = binding.etSignUpName.text.toString()
@@ -25,7 +28,8 @@ class SignUpActivity : AppCompatActivity() {
             val confirmPassword = binding.etSignUpConfirmPassword.text.toString()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(this@SignUpActivity, "Fill all the Details", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity, "Fill all the Details", Toast.LENGTH_SHORT)
+                    .show()
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Repeat Password must be same", Toast.LENGTH_SHORT).show()
             } else {
@@ -42,11 +46,19 @@ class SignUpActivity : AppCompatActivity() {
                             db.collection("Users").add(user)
                                 .addOnSuccessListener { documentReference ->
                                     user.userId = documentReference.id
+                                    mySharedPreferences.saveUserId(documentReference.id)
+
                                     db.collection("Users").document(documentReference.id).set(user)
                                         .addOnSuccessListener {
-
-                                            Toast.makeText(this, "Sign Up Successfully", Toast.LENGTH_SHORT).show()
-                                            val intent = Intent(this@SignUpActivity, ActivityLogin::class.java)
+                                            Toast.makeText(
+                                                this,
+                                                "Sign Up Successfully",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            val intent = Intent(
+                                                this@SignUpActivity,
+                                                ActivityLogin::class.java
+                                            )
                                             startActivity(intent)
                                             finish()
                                         }
@@ -67,7 +79,11 @@ class SignUpActivity : AppCompatActivity() {
                                 }
                         } else {
                             // Email already exists, show a toast message
-                            Toast.makeText(this, "This email already has an account", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "This email already has an account",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                     .addOnFailureListener { e ->

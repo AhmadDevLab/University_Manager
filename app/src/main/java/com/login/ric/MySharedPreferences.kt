@@ -18,10 +18,25 @@ class MySharedPreferences(context: Context){
         editor.putString("Password",password)
         editor.apply()
     }
- fun saveName(name:String)
+    fun saveName(name:String)
     {
         editor.putString("FirstName",name)
         editor.apply()
+    }
+
+    fun saveUserId(userId:String){
+        editor.putString("SavedUserId",userId)
+        editor.apply()
+    }
+    fun isLogedIn(isLogin : Boolean)
+    {
+        editor.putBoolean("isLogin",isLogin)
+        editor.apply()
+    }
+
+    fun getUserId():String
+    {
+        return sharedPreferences.getString("SavedUserId","Default Id") !!
     }
 
     fun getName():String
@@ -37,6 +52,11 @@ class MySharedPreferences(context: Context){
     fun getPassword():String
     {
        return sharedPreferences.getString("Password","Default Password") !!
+    }
+
+    fun getIsLogIN():Boolean
+    {
+        return sharedPreferences.getBoolean("isLogin",false)
     }
 
 }
